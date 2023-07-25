@@ -533,19 +533,6 @@ void print_arr(int*& a, int n) {
 		cout << a[i] << " ";
 	cout << endl;
 }
-
-///////////CMD1--------------------------
-void runAlgorithmOnGivenInput(int argc, char* argv[]) {
-	// Code thực hiện tác vụ
-}
-
-///////////CMD2--------------------------
-void runAlgorithmOnGeneratedData(int argc, char* argv[]) {
-	// Code thực hiện tác vụ
-}
-
-
-///////////CMD3--------------------------
 void readDataFromFile(const string& filename, int arr[], int n) {
 	ifstream ifs(filename);
 	ifs >> n;
@@ -554,7 +541,27 @@ void readDataFromFile(const string& filename, int arr[], int n) {
 	}
 	ifs.close();
 }
+///////////CMD1--------------------------
+void runAlgorithmOnGivenInput(int argc, char* argv[]) {
+	// Code thực hiện tác vụ
+	
+	int* array = new int[
 
+	
+}
+
+///////////CMD2--------------------------
+void runAlgorithmOnGeneratedData(int argc, char* argv[]) {
+	// Code thực hiện tác vụ
+	stringstream ss1(argv[1]);
+	int input_size;
+	ss1 >> input_size;
+	int* rand = new int[input_size];
+	GenerateRandomData(rand, input_size);
+}
+
+
+///////////CMD3--------------------------
 void runAlgorithmOnAllDataArrangements(int argc, char* argv[]) {
 
 	stringstream ss1(argv[3]);
