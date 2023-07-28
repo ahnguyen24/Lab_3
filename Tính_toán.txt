@@ -21,7 +21,5 @@
 + Khi gọi hàm thuật toán thì add thêm vào 
 vd: void quickSort(int* arr, int n, int& count_comp);
 + mỗi khi xảy ra phép so sánh (cái này ở trong hàm), thì biến count_comp tăng lên 1
-+ (không phải thuật toán nào cũng sử dụng comparison, nên cần để ý:) )
 
-==========================
-/Tạm thời chưa biết nên note thêm gì, có gì update t sẽ thả vào đây hihi/
+

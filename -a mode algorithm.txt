@@ -1,0 +1,14 @@
+-a: mode algorithm
+[algorithm]: name of al
+[given input]: file .txt
+[output param]: -both / -time / -comp
+[input order]: the order of input: -rand/-nsorted/-sorted/-rev
+[input size]: the size of input
+
+-c: mode comparison
+[algorithm_1]
+[algorithm_2]
+[given input]
+
+
+

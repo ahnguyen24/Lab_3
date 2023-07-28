@@ -6,18 +6,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "Header.h"
+
 using namespace std;
 
-struct inputData {
-	string mode;
-	string algorithm_name;
-	int size;
-	string output_para;
-};
+int main(int argc, char* argv[]) {
+	if (argc < 2) {
+		cout << "Missing command";
+		return 1;
+	}
 
+	string command = argv[1];
+	if (command == "-a" && argc == 5 && !isdigit(*argv[3])) {
+		runAlgorithmOnGivenInput(argc, argv);
 
-int main()
-{
+	}
+	else if (command == "-a" && argc == 6) {
+		runAlgorithmOnGeneratedData(argc, argv);
+
+	}
+	else if (command == "-a" && argc == 5 && isdigit(*argv[3])) {
+		runAlgorithmOnAllDataArrangements(argc, argv);
+
+	}
+	else if (command == "-c" && argc == 5) {
+		runTwoAlgorithmsOnGivenInput(argc, argv);
+	}
+	else if (command == "-c" && argc == 6) {
+		runTwoAlgorithmsOnGeneratedData(argc, argv);
+
+	}
+	else {
+		cout << "Invalid command";
+		return 1;
+	}
+
 	return 0;
 }
 
