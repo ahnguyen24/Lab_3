@@ -36,35 +36,41 @@ void HoanVi(T& a, T& b);
 
 void selectionSort(int arr[], int n);
 int selectionSortWithComparisonCount(int* arr, int n);
-
+void time_of_selectionSort(int arr[], int n, double& time);
 //=====INSERTION-SORT=====
 
 void insertionSort(int arr[], int n);
 int insertionSortWithComparisonCount(int* arr, int n);
-
+void time_of_insertionSort(int arr[], int n, double& time);
 //=====BUBBLE-SORT=====
 
 void bubbleSort(int arr[], int n);
 int bubbleSortWithComparisonCount(int* arr, int n);
+void time_of_bubbleSort(int arr[], int n, double& time);
 
 //=====SHAKER-SORT=====
 
 void shakerSort(int arr[], int n);
 int shakerSortWithComparisonCount(int arr[], int size);
+void time_of_shakerSort(int arr[], int n, double& time);
+
 //=====SHELL-SORT=====
 
 void shellSort(int arr[], int n);
 int shellSortWithComparisonCount(int arr[], int size);
+void time_of_shellSort(int arr[], int n, double& time);
 
 //=====HEAP-SORT=====
 
 void heapify(int arr[], int N, int i, int& comp);
 void heapSort(int arr[], int N, int& comp);
+void time_of_heapSort(int arr[], int n, double& time);
 
 //=====MERGE-SORT=====
 
 void merge(int arr[], int left, int mid, int right, int& comparisons);
 void mergeSort(int array[], int const begin, int const end, int& comparisons);
+void time_of_mergeSort(int array[], int const begin, int const m_end, double& time);
 
 //=====QUICK-SORT=====
 

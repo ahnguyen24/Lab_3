@@ -452,7 +452,50 @@ void runAlgorithmOnAllDataArrangements(int argc, char* argv[]) {
 
 		if (strcmp(argv[4], "-time") == 0) {
 			double time_rand = 0.0, time_near = 0.0, time_rev = 0.0, time_sorted = 0.0;
-			if (strcmp(argv[2], "flash-sort") == 0) {
+
+			if (strcmp(argv[2], "selection-sort") == 0) {
+				time_of_selectionSort(randArr, input_size, time_rand);
+				time_of_selectionSort(nearArr, input_size, time_near);
+				time_of_selectionSort(sortedArr, input_size, time_sorted);
+				time_of_selectionSort(revArr, input_size, time_rev);
+			}
+			else if (strcmp(argv[2], "bubble-sort") == 0) {
+				time_of_bubbleSort(randArr, input_size, time_rand);
+				time_of_bubbleSort(nearArr, input_size, time_near);
+				time_of_bubbleSort(sortedArr, input_size, time_sorted);
+				time_of_bubbleSort(revArr, input_size, time_rev);
+			}
+			else if (strcmp(argv[2], "insertion-sort") == 0) {
+				time_of_insertionSort(randArr, input_size, time_rand);
+				time_of_insertionSort(nearArr, input_size, time_near);
+				time_of_insertionSort(sortedArr, input_size, time_sorted);
+				time_of_insertionSort(revArr, input_size, time_rev);
+			}
+			else if (strcmp(argv[2], "merge-sort") == 0) {
+				time_of_mergeSort(randArr, 0, input_size - 1, time_rand);
+				time_of_mergeSort(nearArr, 0, input_size - 1, time_near);
+				time_of_mergeSort(sortedArr, 0, input_size - 1, time_sorted);
+				time_of_mergeSort(revArr, 0, input_size - 1, time_rev);
+			}
+			else if (strcmp(argv[2], "heap-sort") == 0) {
+				time_of_heapSort(randArr, input_size, time_rand);
+				time_of_heapSort(nearArr, input_size, time_near);
+				time_of_heapSort(sortedArr, input_size, time_sorted);
+				time_of_heapSort(revArr, input_size, time_rev);
+			}
+			else if (strcmp(argv[2], "shaker-sort") == 0) {
+				time_of_shakerSort(randArr, input_size, time_rand);
+				time_of_shakerSort(nearArr, input_size, time_near);
+				time_of_shakerSort(sortedArr, input_size, time_sorted);
+				time_of_shakerSort(revArr, input_size, time_rev);
+			}
+			else if (strcmp(argv[2], "shell-sort") == 0) {
+				time_of_shellSort(randArr, input_size, time_rand);
+				time_of_shellSort(nearArr, input_size, time_near);
+				time_of_shellSort(sortedArr, input_size, time_sorted);
+				time_of_shellSort(revArr, input_size, time_rev);
+			}
+			else if (strcmp(argv[2], "flash-sort") == 0) {
 				time_of_flashSort(randArr, input_size, time_rand);
 				time_of_flashSort(nearArr, input_size, time_near);
 				time_of_flashSort(sortedArr, input_size, time_sorted);
@@ -495,7 +538,49 @@ void runAlgorithmOnAllDataArrangements(int argc, char* argv[]) {
 		}
 		else if (strcmp(argv[4], "-comp") == 0) {
 			int comp_rand = 0, comp_near = 0, comp_sorted = 0, comp_rev = 0;
-			if (strcmp(argv[2], "flash-sort") == 0) {
+			if (strcmp(argv[2], "selection-sort") == 0) {
+				comp_rand = selectionSortWithComparisonCount(randArr, input_size);
+				comp_near = selectionSortWithComparisonCount(nearArr, input_size);
+				comp_sorted = selectionSortWithComparisonCount(sortedArr, input_size);
+				comp_rev = selectionSortWithComparisonCount(revArr, input_size);
+			}
+			else if (strcmp(argv[2], "bubble-sort") == 0) {
+				comp_rand = bubbleSortWithComparisonCount(randArr, input_size);
+				comp_near = bubbleSortWithComparisonCount(nearArr, input_size);
+				comp_sorted = bubbleSortWithComparisonCount(sortedArr, input_size);
+				comp_rev = bubbleSortWithComparisonCount(revArr, input_size);
+			}
+			else if (strcmp(argv[2], "insertion-sort") == 0) {
+				comp_rand = insertionSortWithComparisonCount(randArr, input_size);
+				comp_near = insertionSortWithComparisonCount(nearArr, input_size);
+				comp_sorted = insertionSortWithComparisonCount(sortedArr, input_size);
+				comp_rev = insertionSortWithComparisonCount(revArr, input_size);
+			}
+			else if (strcmp(argv[2], "merge-sort") == 0) { //
+				mergeSort(randArr, 0, input_size - 1, comp_rand);
+				mergeSort(nearArr, 0, input_size - 1, comp_near);
+				mergeSort(sortedArr, 0, input_size - 1, comp_sorted);
+				mergeSort(revArr, 0, input_size - 1, comp_rev);
+			}
+			else if (strcmp(argv[2], "heap-sort") == 0) { //
+				heapSort(randArr, input_size, comp_rand);
+				heapSort(nearArr, input_size, comp_near);
+				heapSort(sortedArr, input_size, comp_sorted);
+				heapSort(revArr, input_size, comp_rev);
+			}
+			else if (strcmp(argv[2], "shaker-sort") == 0) {
+				comp_rand = shakerSortWithComparisonCount(randArr, input_size);
+				comp_near = shakerSortWithComparisonCount(nearArr, input_size);
+				comp_sorted = shakerSortWithComparisonCount(sortedArr, input_size);
+				comp_rev = shakerSortWithComparisonCount(revArr, input_size);
+			}
+			else if (strcmp(argv[2], "shell-sort") == 0) {
+				comp_rand = shellSortWithComparisonCount(randArr, input_size);
+				comp_near = shellSortWithComparisonCount(nearArr, input_size);
+				comp_sorted = shellSortWithComparisonCount(sortedArr, input_size);
+				comp_rev = shellSortWithComparisonCount(revArr, input_size);
+			}
+			else if (strcmp(argv[2], "flash-sort") == 0) {
 				comp_of_flashSort(randArr, input_size, comp_rand);
 				comp_of_flashSort(nearArr, input_size, comp_near);
 				comp_of_flashSort(sortedArr, input_size, comp_sorted);
@@ -552,7 +637,49 @@ void runAlgorithmOnAllDataArrangements(int argc, char* argv[]) {
 		readDataFromFile("input_4.txt", revArr_c, input_size);
 
 		double time_rand = 0.0, time_near = 0.0, time_rev = 0.0, time_sorted = 0.0;
-		if (strcmp(argv[2], "flash-sort") == 0) {
+		if (strcmp(argv[2], "selection-sort") == 0) {
+			time_of_selectionSort(randArr_t, input_size, time_rand);
+			time_of_selectionSort(nearArr_t, input_size, time_near);
+			time_of_selectionSort(sortedArr_t, input_size, time_sorted);
+			time_of_selectionSort(revArr_t, input_size, time_rev);
+		}
+		else if (strcmp(argv[2], "bubble-sort") == 0) {
+			time_of_bubbleSort(randArr_t, input_size, time_rand);
+			time_of_bubbleSort(nearArr_t, input_size, time_near);
+			time_of_bubbleSort(sortedArr_t, input_size, time_sorted);
+			time_of_bubbleSort(revArr_t, input_size, time_rev);
+		}
+		else if (strcmp(argv[2], "insertion-sort") == 0) {
+			time_of_insertionSort(randArr_t, input_size, time_rand);
+			time_of_insertionSort(nearArr_t, input_size, time_near);
+			time_of_insertionSort(sortedArr_t, input_size, time_sorted);
+			time_of_insertionSort(revArr_t, input_size, time_rev);
+		}
+		else if (strcmp(argv[2], "merge-sort") == 0) {
+			time_of_mergeSort(randArr_t, 0, input_size - 1, time_rand);
+			time_of_mergeSort(nearArr_t, 0, input_size - 1, time_near);
+			time_of_mergeSort(sortedArr_t, 0, input_size - 1, time_sorted);
+			time_of_mergeSort(revArr_t, 0, input_size - 1, time_rev);
+		}
+		else if (strcmp(argv[2], "heap-sort") == 0) {
+			time_of_heapSort(randArr_t, input_size, time_rand);
+			time_of_heapSort(nearArr_t, input_size, time_near);
+			time_of_heapSort(sortedArr_t, input_size, time_sorted);
+			time_of_heapSort(revArr_t, input_size, time_rev);
+		}
+		else if (strcmp(argv[2], "shaker-sort") == 0) {
+			time_of_shakerSort(randArr_t, input_size, time_rand);
+			time_of_shakerSort(nearArr_t, input_size, time_near);
+			time_of_shakerSort(sortedArr_t, input_size, time_sorted);
+			time_of_shakerSort(revArr_t, input_size, time_rev);
+		}
+		else if (strcmp(argv[2], "shell-sort") == 0) {
+			time_of_shellSort(randArr_t, input_size, time_rand);
+			time_of_shellSort(nearArr_t, input_size, time_near);
+			time_of_shellSort(sortedArr_t, input_size, time_sorted);
+			time_of_shellSort(revArr_t, input_size, time_rev);
+		}
+		else if (strcmp(argv[2], "flash-sort") == 0) {
 			time_of_flashSort(randArr_t, input_size, time_rand);
 			time_of_flashSort(nearArr_t, input_size, time_near);
 			time_of_flashSort(sortedArr_t, input_size, time_sorted);
@@ -581,7 +708,49 @@ void runAlgorithmOnAllDataArrangements(int argc, char* argv[]) {
 			return;
 		}
 		int comp_rand = 0, comp_near = 0, comp_sorted = 0, comp_rev = 0;
-		if (strcmp(argv[2], "flash-sort") == 0) {
+		if (strcmp(argv[2], "selection-sort") == 0) {
+			comp_rand = selectionSortWithComparisonCount(randArr_c, input_size);
+			comp_near = selectionSortWithComparisonCount(nearArr_c, input_size);
+			comp_sorted = selectionSortWithComparisonCount(sortedArr_c, input_size);
+			comp_rev = selectionSortWithComparisonCount(revArr_c, input_size);
+		}
+		else if (strcmp(argv[2], "bubble-sort") == 0) {
+			comp_rand = bubbleSortWithComparisonCount(randArr_c, input_size);
+			comp_near = bubbleSortWithComparisonCount(nearArr_c, input_size);
+			comp_sorted = bubbleSortWithComparisonCount(sortedArr_c, input_size);
+			comp_rev = bubbleSortWithComparisonCount(revArr_c, input_size);
+		}
+		else if (strcmp(argv[2], "insertion-sort") == 0) {
+			comp_rand = insertionSortWithComparisonCount(randArr_c, input_size);
+			comp_near = insertionSortWithComparisonCount(nearArr_c, input_size);
+			comp_sorted = insertionSortWithComparisonCount(sortedArr_c, input_size);
+			comp_rev = insertionSortWithComparisonCount(revArr_c, input_size);
+		}
+		else if (strcmp(argv[2], "merge-sort") == 0) { //
+			mergeSort(randArr_c, 0, input_size - 1, comp_rand);
+			mergeSort(nearArr_c, 0, input_size - 1, comp_near);
+			mergeSort(sortedArr_c, 0, input_size - 1, comp_sorted);
+			mergeSort(revArr_c, 0, input_size - 1, comp_rev);
+		}
+		else if (strcmp(argv[2], "heap-sort") == 0) { //
+			heapSort(randArr_c, input_size, comp_rand);
+			heapSort(nearArr_c, input_size, comp_near);
+			heapSort(sortedArr_c, input_size, comp_sorted);
+			heapSort(revArr_c, input_size, comp_rev);
+		}
+		else if (strcmp(argv[2], "shaker-sort") == 0) {
+			comp_rand = shakerSortWithComparisonCount(randArr_c, input_size);
+			comp_near = shakerSortWithComparisonCount(nearArr_c, input_size);
+			comp_sorted = shakerSortWithComparisonCount(sortedArr_c, input_size);
+			comp_rev = shakerSortWithComparisonCount(revArr_c, input_size);
+		}
+		else if (strcmp(argv[2], "shell-sort") == 0) {
+			comp_rand = shellSortWithComparisonCount(randArr_c, input_size);
+			comp_near = shellSortWithComparisonCount(nearArr_c, input_size);
+			comp_sorted = shellSortWithComparisonCount(sortedArr_c, input_size);
+			comp_rev = shellSortWithComparisonCount(revArr_c, input_size);
+		}
+		else if (strcmp(argv[2], "flash-sort") == 0) {
 			comp_of_flashSort(randArr_c, input_size, comp_rand);
 			comp_of_flashSort(nearArr_c, input_size, comp_near);
 			comp_of_flashSort(sortedArr_c, input_size, comp_sorted);
@@ -824,6 +993,7 @@ void runTwoAlgorithmsOnGivenInput(int argc, char* argv[])
 		end = clock();
 		comp_of_flashSort(arr_a2, n, comp_count_2);
 	}
+
 	cout << "COMPARE MODE" << "\n";
 	cout << "Algorithm: " << algorithm1 << " | " << algorithm2 << "\n";
 	cout << "Input file: " << inputFileName << "\n";
@@ -844,6 +1014,7 @@ void runTwoAlgorithmsOnGeneratedData(int argc, char* argv[]) {
 	ss1 >> input_size;
 
 	int* Array = new int[input_size];
+	int* subArray = new int[input_size];
 	if (strcmp(argv[5], "-rand") == 0)
 		GenerateRandomData(Array, input_size);
 	else if (strcmp(argv[5], "-nsorted") == 0)
@@ -856,7 +1027,10 @@ void runTwoAlgorithmsOnGeneratedData(int argc, char* argv[]) {
 		cout << "Invalid order data name\n";
 		return;
 	}
-
+	for (int i = 0; i < input_size; i++)
+	{
+		subArray[i] = Array[i];
+	}
 	ofstream ofs("input.txt");
 	ofs << input_size << endl;
 
@@ -871,21 +1045,49 @@ void runTwoAlgorithmsOnGeneratedData(int argc, char* argv[]) {
 	double time1 = 0.0, time2 = 0.0;
 
 	///////////A2
-	if (strcmp(argv[2], "flash-sort")) {
-		time_of_flashSort(Array, input_size, time1);
-		comp_of_flashSort(Array, input_size, comp1);
+	if (strcmp(argv[2], "selection-sort") == 0) {
+		time_of_selectionSort(Array, input_size, time1);
+		comp1 = selectionSortWithComparisonCount(Array, input_size);
+	}
+	else if (strcmp(argv[2], "bubble-sort") == 0) {
+		time_of_bubbleSort(Array, input_size, time1);
+		comp1 = bubbleSortWithComparisonCount(Array, input_size);
+	}
+	else if (strcmp(argv[2], "insertion-sort") == 0) {
+		time_of_insertionSort(Array, input_size, time1);
+		comp1 = insertionSortWithComparisonCount(Array, input_size);
+	}
+	else if (strcmp(argv[2], "merge-sort") == 0) { //
+		time_of_mergeSort(Array, 0, input_size-1, time1);
+		mergeSort(Array, 0, input_size - 1, comp1);
+	}
+	else if (strcmp(argv[2], "heap-sort") == 0) { //
+		time_of_heapSort(Array, input_size, time1);
+		mergeSort(Array, 0, input_size - 1, comp1);
+	}
+	else if (strcmp(argv[2], "shaker-sort") == 0) {
+		time_of_shakerSort(Array, input_size, time1);
+		comp1 = shakerSortWithComparisonCount(Array, input_size);
+	}
+	else if (strcmp(argv[2], "shell-sort") == 0) {
+		time_of_shellSort(Array, input_size, time1);
+		comp1 = shellSortWithComparisonCount(Array, input_size);
+	}
+	else if (strcmp(argv[2], "flash-sort")) {
+		time_of_flashSort(subArray, input_size, time1);
+		comp_of_flashSort(subArray, input_size, comp1);
 	}
 	else if (strcmp(argv[2], "radix-sort")) {
-		time_of_radixSort(Array, input_size, time1);
-		comp_of_radixSort(Array, input_size, comp1);
+		time_of_radixSort(subArray, input_size, time1);
+		comp_of_radixSort(subArray, input_size, comp1);
 	}
 	else if (strcmp(argv[2], "couting-sort")) {
-		time_of_countingSort(Array, input_size, time1);
-		comp_of_countingSort(Array, input_size, comp1);
+		time_of_countingSort(subArray, input_size, time1);
+		comp_of_countingSort(subArray, input_size, comp1);
 	}
 	else if (strcmp(argv[2], "quick-sort")) {
-		time_of_quickSort(Array, input_size, time1);
-		comp_of_quickSort(Array, 0, input_size - 1, comp1);
+		time_of_quickSort(subArray, input_size, time1);
+		comp_of_quickSort(subArray, 0, input_size - 1, comp1);
 	}
 	else {
 		cout << "Invalid order data name\n";
@@ -893,21 +1095,49 @@ void runTwoAlgorithmsOnGeneratedData(int argc, char* argv[]) {
 	}
 
 	///////A3
-	if (strcmp(argv[3], "flash-sort")) {
-		time_of_flashSort(Array, input_size, time2);
-		comp_of_flashSort(Array, input_size, comp2);
+	if (strcmp(argv[3], "selection-sort") == 0) {
+		time_of_selectionSort(Array, input_size, time2);
+		comp2 = selectionSortWithComparisonCount(Array, input_size);
+	}
+	else if (strcmp(argv[3], "bubble-sort") == 0) {
+		time_of_bubbleSort(Array, input_size, time2);
+		comp2 = bubbleSortWithComparisonCount(Array, input_size);
+	}
+	else if (strcmp(argv[3], "insertion-sort") == 0) {
+		time_of_insertionSort(Array, input_size, time2);
+		comp2 = insertionSortWithComparisonCount(Array, input_size);
+	}
+	else if (strcmp(argv[3], "merge-sort") == 0) { //
+		time_of_mergeSort(Array, 0, input_size - 1, time2);
+		mergeSort(Array, 0, input_size - 1, comp2);
+	}
+	else if (strcmp(argv[3], "heap-sort") == 0) { //
+		time_of_heapSort(Array, input_size, time2);
+		mergeSort(Array, 0, input_size - 1, comp2);
+	}
+	else if (strcmp(argv[3], "shaker-sort") == 0) {
+		time_of_shakerSort(Array, input_size, time2);
+		comp2 = shakerSortWithComparisonCount(Array, input_size);
+	}
+	else if (strcmp(argv[3], "shell-sort") == 0) {
+		time_of_shellSort(Array, input_size, time2);
+		comp2 = shellSortWithComparisonCount(Array, input_size);
+	}
+	else if (strcmp(argv[3], "flash-sort")) {
+		time_of_flashSort(subArray, input_size, time2);
+		comp_of_flashSort(subArray, input_size, comp2);
 	}
 	else if (strcmp(argv[3], "radix-sort")) {
-		time_of_radixSort(Array, input_size, time2);
-		comp_of_radixSort(Array, input_size, comp2);
+		time_of_radixSort(subArray, input_size, time2);
+		comp_of_radixSort(subArray, input_size, comp2);
 	}
 	else if (strcmp(argv[3], "couting-sort")) {
-		time_of_countingSort(Array, input_size, time2);
-		comp_of_countingSort(Array, input_size, comp2);
+		time_of_countingSort(subArray, input_size, time2);
+		comp_of_countingSort(subArray, input_size, comp2);
 	}
 	else if (strcmp(argv[3], "quick-sort")) {
-		time_of_quickSort(Array, input_size, time2);
-		comp_of_quickSort(Array, 0, input_size - 1, comp2);
+		time_of_quickSort(subArray, input_size, time2);
+		comp_of_quickSort(subArray, 0, input_size - 1, comp2);
 	}
 	else {
 		cout << "Invalid order data name\n";
@@ -922,6 +1152,6 @@ void runTwoAlgorithmsOnGeneratedData(int argc, char* argv[]) {
 	cout << "Running time: " << time1 << " | " << time2 << endl;
 	cout << "Comparisons: " << comp1 << " | " << comp2;
 
-	delete[] Array, al_1t, al_1c, al_2t, al_2c;
+	delete[] Array, subArray, al_1t, al_1c, al_2t, al_2c;
 }
 
